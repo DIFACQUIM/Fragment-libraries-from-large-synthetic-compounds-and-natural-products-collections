@@ -1,1 +1,1 @@
-# Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections
+# Fragmentmlibraries from large synthetic compounds and natural products collections
