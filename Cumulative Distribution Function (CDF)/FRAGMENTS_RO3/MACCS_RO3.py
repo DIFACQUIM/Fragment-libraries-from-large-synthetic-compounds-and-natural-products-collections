@@ -61,7 +61,7 @@ def MACCSkeys_fp (smi):
     SimMat = 1 - pdist(fps[[x for x in range(167)]], metric="jaccard") # Similarity Matrix
     return SimMat
 
-# SMILES FROM RO3
+# SMILES FROM FRAGMENTS RO3
 EnamineSolWat_RO3 = list(EnamineSolWat_RO3["SMILES_chiral"])
 lanapdb_RO3 = list(lanapdb_RO3["SMILES_chiral"])
 coconut_RO3 = list(coconut_RO3["SMILES_chiral"])
