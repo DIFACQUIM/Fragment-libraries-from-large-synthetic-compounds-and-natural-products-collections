@@ -50,12 +50,6 @@ print(CRAFT.tail(2))
 
 #### Functions
 """
-
-from rdkit import Chem
-from rdkit.Chem import MACCSkeys, AllChem
-from rdkit.Chem import rdFingerprintGenerator
-from scipy.spatial.distance import pdist
-
 def ECFP (smi, r):
     fps = pd.DataFrame([[int(y) for y in rdFingerprintGenerator.GetMorganGenerator(radius=r, fpSize=1024).GetFingerprint(Chem.MolFromSmiles(x)).ToBitString()] for x in smi])
     SimMat = 1 - pdist(fps[[x for x in range(1024)]], metric="jaccard") # Similarity Matrix
@@ -125,7 +119,7 @@ SimMatMACCS_EnamineSolWat_sorted = np.sort(MACCSkeys_fp(EnamineSolWat))
 SimMatMACCS_Maybridge_sorted = np.sort(MACCSkeys_fp(Maybridge))
 SimMatMACCS_CRAFT_sorted = np.sort(MACCSkeys_fp(CRAFT))
 
-# calculate the proportional values of samples for MACCS
+# Calculate the proportional values of samples for MACCS
 proportionMACCS_EnamineSolWat = 1. * np.arange(len(SimMatMACCS_EnamineSolWat_sorted)) / (len(SimMatMACCS_EnamineSolWat_sorted) - 1)
 print(len(proportionMACCS_EnamineSolWat))
 
