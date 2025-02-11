@@ -12,40 +12,50 @@ from scipy.spatial.distance import pdist
 print(f"rdkit_version: {rdkit.__version__}")
 
 """ FRAGMENTS RO3 """
-url_data = "https://drive.google.com/file/d/1BOBSUqrWCHBcpfkrrSoQT_JfXkAvrkzV/view?usp=drive_link"
-url_data='https://drive.google.com/uc?id=' + url_data.split('/')[-2]
+# LANaPDB RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/LANaPDB_RO3_Moleculardescriptors.csv"
 lanapdb_RO3 = pd.read_csv(url_data)
-lanapdb_RO3.tail(2)
+lanapdb_RO3 = lanapdb_RO3[["ID", "SMILES_chiral"]]
+lanapdb_RO3["Database"] = "LANaPDB"
+print(lanapdb_RO3.tail(2))
 
-url_data_COCONUT = "https://drive.google.com/file/d/1XM0rEgSrUBZ_Rc6M29zpGtHyFipiy0vz/view?usp=drive_link"
-url_data_COOCONUT ='https://drive.google.com/uc?id=' + url_data_COCONUT.split('/')[-2]
-coconut_RO3 = pd.read_csv(url_data_COOCONUT)
-coconut_RO3.tail(2)
+# COCONUT RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/COCONUT_RO3_Moleculardescriptors.csv"
+coconut_RO3 = pd.read_csv(url_data)
+coconut_RO3 = coconut_RO3[["ID", "SMILES_chiral","Database"]]
+print(coconut_RO3.tail(2))
 
-url_data_EnamineSolWat = "https://drive.google.com/file/d/1-Oo0_FgEcgkHkjrpoGOM5voQSc3-G-jd/view?usp=sharing"
-url_data_EnamineSolWat ='https://drive.google.com/uc?id=' + url_data_EnamineSolWat.split('/')[-2]
-EnamineSolWat_RO3 = pd.read_csv(url_data_EnamineSolWat)
-EnamineSolWat_RO3.tail(2)
+# Enamine RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/Enamine_RO3_Moleculardescriptors.csv"
+Enamine_RO3 = pd.read_csv(url_data)
+Enamine_RO3 = Enamine_RO3[["ID", "SMILES_chiral"]]
+Enamine_RO3["Database"] = "Enamine"
+print(Enamine_RO3.tail(2))
 
-url_data_ChemDiv = "https://drive.google.com/file/d/1-4btTI1dpHuZUAdDBBVXNg6HJcwaFaBL/view?usp=sharing"
-url_data_ChemDiv ='https://drive.google.com/uc?id=' + url_data_ChemDiv.split('/')[-2]
-ChemDiv_RO3 = pd.read_csv(url_data_ChemDiv)
-ChemDiv_RO3.tail(2)
+# ChemDiv RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/ChemDiv_RO3_Moleculardescriptors.csv"
+ChemDiv_RO3 = pd.read_csv(url_data)
+ChemDiv_RO3 = ChemDiv_RO3[["ID", "SMILES_chiral","Database"]]
+print(ChemDiv_RO3.tail(2))
 
-url_data_Maybridge = "https://drive.google.com/file/d/1-A5PY17BgEWeDHHhAa_E711LV3ZtwO74/view?usp=sharing"
-url_data_Maybridge='https://drive.google.com/uc?id=' + url_data_Maybridge.split('/')[-2]
-Maybridge_RO3 = pd.read_csv(url_data_Maybridge)
-Maybridge_RO3.tail(2)
+# Maybridge RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/Maybridge_RO3_Moleculardescriptors.csv"
+Maybridge_RO3 = pd.read_csv(url_data)
+Maybridge_RO3 = Maybridge_RO3[["ID", "SMILES_chiral", "Database"]]
+print(Maybridge_RO3.tail(2))
 
-url_data_LifeChemicals = "https://drive.google.com/file/d/1-LXu2oQZLMmaPIttlCQnljSIABAaYe9g/view?usp=sharing"
-url_data_LifeChemicals ='https://drive.google.com/uc?id=' + url_data_LifeChemicals.split('/')[-2]
-LifeChemicals_RO3 = pd.read_csv(url_data_LifeChemicals)
-LifeChemicals_RO3.tail(2)
+# Life Chemicals RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/LifeChemicals_RO3_Moleculardescriptors.csv"
+LifeChemicals_RO3 = pd.read_csv(url_data)
+LifeChemicals_RO3 = LifeChemicals_RO3[["ID", "SMILES_chiral"]]
+LifeChemicals_RO3["Database"] = "Life Chemicals"
+print(LifeChemicals_RO3.tail(2))
 
-url_data_CRAFT = "https://drive.google.com/file/d/1-4BEojtFtevY9nSlEkKLzQ5tN3PpLqrE/view?usp=sharing"
-url_data_CRAFT ='https://drive.google.com/uc?id=' + url_data_CRAFT.split('/')[-2]
-CRAFT_RO3 = pd.read_csv(url_data_CRAFT)
-CRAFT_RO3.tail(2)
+# CRAFT RO3
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS_RO3/CRAFT_RO3_Moleculardescriptors.csv"
+CRAFT_RO3 = pd.read_csv(url_data)
+CRAFT_RO3 = CRAFT_RO3[["ID", "SMILES_chiral", "Database"]]
+print(CRAFT_RO3.tail(2))
 
 """## Commulative distribution function
 
