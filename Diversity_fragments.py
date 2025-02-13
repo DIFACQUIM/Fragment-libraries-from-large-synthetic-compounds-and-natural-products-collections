@@ -12,43 +12,49 @@ from scipy.spatial.distance import pdist
 
 print(f"rdkit_version: {rdkit.__version__}")
 
-# Read datasets
-url_data = "https://drive.google.com/file/d/12wkBXwTI58xVjRmhaOyG_jiiCRFOi3Ov/view?usp=sharing"
-url_data='https://drive.google.com/uc?id=' + url_data.split('/')[-2]
+# ALL FRAGMENTS DATABASES
+# LANaPDB
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS/LANaPDB_Moleculardescriptors.csv"
 lanapdb = pd.read_csv(url_data)
-lanapdb.tail(2)
-len_lanapdb = len(lanapdb)
+lanapdb = lanapdb[["ID", "SMILES_chiral"]]
+lanapdb["Database"] = "LANaPDB"
+print(lanapdb.tail(2))
 
-coconut = pd.read_csv(argv[1], sep=",") #COCONUT_2024_molecular_descriptors
-coconut.tail(2)
-len_coconut = len(coconut)
+# COCONUT
+coconut = pd.read_csv(argv[1], sep=",") 
+print(coconut.tail(2))
 
-url_data_EnamineSolWat = "https://drive.google.com/file/d/14joMGmdMgnzPRopRWMXdEx4myLAHHGbc/view?usp=drive_link"
-url_data_EnamineSolWat ='https://drive.google.com/uc?id=' + url_data_EnamineSolWat.split('/')[-2]
-EnamineSolWat = pd.read_csv(url_data_EnamineSolWat)
-EnamineSolWat.tail(2)
- 
-url_data_ChemDiv = "https://drive.google.com/file/d/14QjDAGOqvgPehTEc0290gzCmASlaijXB/view?usp=sharing"
-url_data_ChemDiv ='https://drive.google.com/uc?id=' + url_data_ChemDiv.split('/')[-2]
-ChemDiv = pd.read_csv(url_data_ChemDiv)
-ChemDiv.tail(2)
-len_ChemDiv = len(ChemDiv)
+# Enamine
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS/Enamine_Moleculardescriptors.csv"
+EnamineSolWat = pd.read_csv(url_data)
+EnamineSolWat = Enamine[["ID", "SMILES_chiral"]]
+EnamineSolWat["Database"] = "Enamine"
+print(EnamineSolWat.tail(2))
 
-url_data_Maybridge = "https://drive.google.com/file/d/18TQoiXtGLY6LS95y5iR3UvTE_CuZyZnM/view?usp=drive_link"
-url_data_Maybridge='https://drive.google.com/uc?id=' + url_data_Maybridge.split('/')[-2]
-Maybridge = pd.read_csv(url_data_Maybridge)
-Maybridge.tail(2)
+# ChemDiv 
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS/ChemDiv_Moleculardescriptors.csv"
+ChemDiv = pd.read_csv(url_data)
+ChemDiv = ChemDiv[["ID", "SMILES_chiral","Database"]]
+print(ChemDiv.tail(2))
 
-url_data_LifeChemicals = "https://drive.google.com/file/d/1XEgnLH8ykiuuYv55341RV0ISqh5yoAXa/view?usp=sharing"
-url_data_LifeChemicals ='https://drive.google.com/uc?id=' + url_data_LifeChemicals.split('/')[-2]
-LifeChemicals = pd.read_csv(url_data_LifeChemicals)
-LifeChemicals.tail(2)
-len_LifeChemicals = len(LifeChemicals)
+# Maybridge 
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS/Maybridge_Moleculardescriptors.csv"
+Maybridge = pd.read_csv(url_data)
+Maybridge = Maybridge[["ID", "SMILES_chiral", "Database"]]
+print(Maybridge.tail(2))
 
-url_data_CRAFT = "https://drive.google.com/file/d/1aKUcchg7A705tYIXbWaZj_OiYaLNCQ4k/view?usp=sharing"
-url_data_CRAFT ='https://drive.google.com/uc?id=' + url_data_CRAFT.split('/')[-2]
-CRAFT = pd.read_csv(url_data_CRAFT)
-CRAFT.tail(2)
+# Life Chemicals 
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS/LifeChemicals_Moleculardescriptors.csv"
+LifeChemicals = pd.read_csv(url_data)
+LifeChemicals = LifeChemicals[["ID", "SMILES_chiral"]]
+LifeChemicals["Database"] = "Life Chemicals"
+print(LifeChemicals.tail(2))
+
+# CRAFT 
+url_data = "https://raw.githubusercontent.com/DIFACQUIM/Fragment-libraries-from-large-synthetic-compounds-and-natural-products-collections/refs/heads/main/DATA_SET/DATA_FRAGMENTS/CRAFT_Moleculardescriptors.csv"
+CRAFT = pd.read_csv(url_data)
+CRAFT = CRAFT[["ID", "SMILES_chiral", "Database"]]
+print(CRAFT.tail(2))
 
 # SMILES list
 lanapdb_smi = list(lanapdb["SMILES_chiral"])
